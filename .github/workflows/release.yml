@@ -1,0 +1,12 @@
+name: Release Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: OleksandrZadvornyi/github-workflows/.github/workflows/semantic-release.yml@main
+    secrets:
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
