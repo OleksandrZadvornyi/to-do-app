@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type TodoFormProps = {
   onAdd: (text: string) => void;
@@ -40,7 +40,14 @@ type Todo = {
 };
 
 export default function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const saved = localStorage.getItem("my-react-todos");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("my-react-todos", JSON.stringify(todos));
+  }, [todos]);
 
   // 1. Add Function
   const addTodo = (text: string) => {
