@@ -45,6 +45,7 @@ export default function App() {
     const saved = localStorage.getItem("my-react-todos");
     return saved ? JSON.parse(saved) : [];
   });
+  const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
 
   useEffect(() => {
     localStorage.setItem("my-react-todos", JSON.stringify(todos));
@@ -74,6 +75,12 @@ export default function App() {
     ));
   };
 
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === 'active') return !todo.completed;
+    if (filter === 'completed') return todo.completed;
+    return true;
+  });
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4">
       {/* Main Card Container */}
@@ -81,13 +88,32 @@ export default function App() {
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
           Tasks
         </h1>
+        <div className='flex justify-center gap-4 mb-6'>
+          <button
+            className={`px-4 py-2 rounded cursor-pointer ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            onClick={() => setFilter('all')}
+          >
+            All
+          </button>
+          <button
+            className={`px-4 py-2 rounded cursor-pointer ${filter === 'active' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            onClick={() => setFilter('active')}
+          >
+            Active
+          </button>
+          <button
+            className={`px-4 py-2 rounded cursor-pointer ${filter === 'completed' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            onClick={() => setFilter('completed')}
+          >
+            Completed
+          </button>
+        </div>
 
-        {/* Pass the add function down as a prop */}
         <TodoForm onAdd={addTodo} />
 
         {/* Render the list */}
         <ul className="space-y-3">
-          {todos.map(todo => (
+          {filteredTodos.map(todo => (
             <TodoItem
               key={todo.id}
               todo={todo}
