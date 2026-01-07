@@ -35,7 +35,7 @@ function TodoForm({ onAdd }: TodoFormProps) {
 }
 
 type Todo = {
-  id: number;
+  id: string;
   text: string;
   completed: boolean;
 };
@@ -53,23 +53,23 @@ export default function App() {
 
   // 1. Add Function
   const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }]);
+    setTodos([...todos, { id: self.crypto.randomUUID(), text, completed: false }]);
   };
 
   // 2. Toggle Function
-  const toggleTodo = (id: number) => {
+  const toggleTodo = (id: string) => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
 
   // 3. Delete Function
-  const deleteTodo = (id: number) => {
+  const deleteTodo = (id: string) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
   // 4. Edit Function
-  const editTodo = (id: number, newText: string) => {
+  const editTodo = (id: string, newText: string) => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, text: newText } : todo
     ));

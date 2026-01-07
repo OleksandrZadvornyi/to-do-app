@@ -1,16 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 
 type Todo = {
-    id: number;
+    id: string;
     text: string;
     completed: boolean;
 };
 
 type TodoItemProps = {
     todo: Todo;
-    onToggle: (id: number) => void;
-    onDelete: (id: number) => void;
-    onEdit: (id: number, newText: string) => void;
+    onToggle: (id: string) => void;
+    onDelete: (id: string) => void;
+    onEdit: (id: string, newText: string) => void;
 };
 
 export function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
