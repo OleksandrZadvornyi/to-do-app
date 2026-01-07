@@ -54,7 +54,7 @@ export default function App() {
       {/* Main Card Container */}
       <div className="w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden p-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          Tasks
+          SimplyDone
         </h1>
         <div className='flex justify-center gap-4 mb-6'>
           <button
