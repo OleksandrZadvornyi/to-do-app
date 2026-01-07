@@ -1,8 +1,9 @@
 {
-  "name": "to-do-app",
+  "name": "simply-done",
   "private": true,
   "version": "0.4.0",
   "type": "module",
+  "description": "A simple and efficient to-do list application built with React and TypeScript",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
