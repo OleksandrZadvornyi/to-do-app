@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/OleksandrZadvornyi/to-do-app/compare/v0.4.1...v0.5.0) (2026-01-07)
+
+
+### Features
+
+* add footer with GitHub link and copyright ([d59253f](https://github.com/OleksandrZadvornyi/to-do-app/commit/d59253fb7ec1131acd84d66bdb722f8f2ac66347))
+
 ## [0.4.1](https://github.com/OleksandrZadvornyi/to-do-app/compare/v0.4.0...v0.4.1) (2026-01-07)
 
 
