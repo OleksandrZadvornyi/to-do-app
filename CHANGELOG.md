@@ -1,0 +1,6 @@
+# [0.3.0](https://github.com/OleksandrZadvornyi/to-do-app/compare/v0.2.0...v0.3.0) (2026-01-07)
+
+
+### Features
+
+* implement filtering tasks ([039712b](https://github.com/OleksandrZadvornyi/to-do-app/commit/039712b7d44d247958dce511fcbbf79e86053b01))
