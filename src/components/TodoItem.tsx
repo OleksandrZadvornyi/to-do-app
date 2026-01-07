@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect } from 'react';
+
 type Todo = {
     id: number;
     text: string;
@@ -8,9 +10,34 @@ type TodoItemProps = {
     todo: Todo;
     onToggle: (id: number) => void;
     onDelete: (id: number) => void;
+    onEdit: (id: number, newText: string) => void;
 };
 
-export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
+export function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
+    const [isEditing, setIsEditing] = useState(false);
+    const [editText, setEditText] = useState(todo.text);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (isEditing && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [isEditing]);
+
+    const handleSave = () => {
+        if (!editText.trim()) return;
+        onEdit(todo.id, editText);
+        setIsEditing(false);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') handleSave();
+        if (e.key === 'Escape') {
+            setEditText(todo.text); // Revert changes
+            setIsEditing(false);
+        }
+    };
+
     return (
         <li
             className={`flex items-center p-3 rounded-lg border transition-all ${todo.completed
@@ -26,13 +53,41 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
                 className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 cursor-pointer mr-4"
             />
 
-            {/* Text */}
-            <span
-                className={`grow text-lg ${todo.completed ? 'line-through text-gray-400' : 'text-gray-700'
-                    }`}
-            >
-                {todo.text}
-            </span>
+            {isEditing ? (
+                // --- EDIT MODE ---
+                <input
+                    ref={inputRef}
+                    type="text"
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    onBlur={handleSave} // Save when clicking away
+                    onKeyDown={handleKeyDown}
+                    className="grow px-2 py-1 border border-blue-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+                />
+            ) : (
+                // --- VIEW MODE ---
+                <span
+                    onDoubleClick={() => setIsEditing(true)} // Double-click to quick edit
+                    className={`grow text-lg cursor-text ${todo.completed ? 'line-through text-gray-400' : 'text-gray-700'
+                        }`}
+                    title="Double-click to edit"
+                >
+                    {todo.text}
+                </span>
+            )}
+
+            {/* Edit Button (Pencil Icon) */}
+            {!isEditing && (
+                <button
+                    onClick={() => setIsEditing(true)}
+                    className="ml-4 text-gray-400 hover:text-blue-500 p-2 rounded-full hover:bg-blue-50 transition-colors"
+                    title="Edit task"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                </button>
+            )}
 
             {/* Delete Button */}
             <button

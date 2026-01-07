@@ -67,6 +67,13 @@ export default function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  // 4. Edit Function
+  const editTodo = (id: number, newText: string) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    ));
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4">
       {/* Main Card Container */}
@@ -86,6 +93,7 @@ export default function App() {
               todo={todo}
               onToggle={toggleTodo}
               onDelete={deleteTodo}
+              onEdit={editTodo}
             />
           ))}
         </ul>
