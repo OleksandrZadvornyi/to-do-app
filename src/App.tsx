@@ -60,18 +60,21 @@ export default function App() {
           <button
             className={`px-4 py-2 rounded cursor-pointer ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
             onClick={() => setFilter('all')}
+            aria-label="Show all tasks"
           >
             All
           </button>
           <button
             className={`px-4 py-2 rounded cursor-pointer ${filter === 'active' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
             onClick={() => setFilter('active')}
+            aria-label="Show active tasks"
           >
             Active
           </button>
           <button
             className={`px-4 py-2 rounded cursor-pointer ${filter === 'completed' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
             onClick={() => setFilter('completed')}
+            aria-label="Show completed tasks"
           >
             Completed
           </button>
