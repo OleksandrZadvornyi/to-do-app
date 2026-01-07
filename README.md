@@ -20,7 +20,7 @@ A modern, minimalist To-Do application built to demonstrate clean React architec
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/to-do-app.git
+    git clone https://github.com/OleksandrZadvornyi/to-do-app.git
     cd simply-done
     ```
 
