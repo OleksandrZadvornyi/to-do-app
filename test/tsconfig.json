@@ -1,20 +1,17 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "moduleResolution": "bundler",
-        "target": "ES2022",
-        "types": [
-            "node",
-            "@wdio/globals/types",
-            "expect-webdriverio",
-            "webdriverio",
-            "@wdio/mocha-framework"
-        ],
-        "noEmit": true,
-        "allowImportingTsExtensions": true
-    },
-    "include": [
-        "../wdio.conf.ts",
-        "./**/*.ts"
-    ]
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "types": [
+      "node",
+      "@wdio/globals/types",
+      "expect-webdriverio",
+      "webdriverio",
+      "@wdio/mocha-framework"
+    ],
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["../wdio.conf.ts", "./**/*.ts"]
 }

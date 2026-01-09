@@ -4,32 +4,35 @@ A modern, minimalist To-Do application built to demonstrate clean React architec
 
 ## Features
 
-* **CRUD Operations:** Create, Read, Update (via double-click or edit button), and Delete tasks.
-* **Filtering:** Toggle between All, Active, and Completed tasks.
-* **Persistence:** Automatically saves data to `localStorage` so you never lose your list.
-* **Modern UI:** Responsive design using the latest TailwindCSS v4.
-* **Developer Experience:** Configured with ESLint, Husky, and Commitlint for code quality.
+- **CRUD Operations:** Create, Read, Update (via double-click or edit button), and Delete tasks.
+- **Filtering:** Toggle between All, Active, and Completed tasks.
+- **Persistence:** Automatically saves data to `localStorage` so you never lose your list.
+- **Modern UI:** Responsive design using the latest TailwindCSS v4.
+- **Developer Experience:** Configured with ESLint, Husky, and Commitlint for code quality.
 
 ## Tech Stack
 
-* **Core:** React 19, TypeScript, Vite
-* **Styling:** TailwindCSS v4
-* **Tooling:** ESLint, Prettier, Husky, Semantic Release
+- **Core:** React 19, TypeScript, Vite
+- **Styling:** TailwindCSS v4
+- **Tooling:** ESLint, Prettier, Husky, Semantic Release
 
 ## Getting Started
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/OleksandrZadvornyi/to-do-app.git
     cd simply-done
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
 
 3.  **Run the development server:**
+
     ```bash
     npm run dev
     ```
