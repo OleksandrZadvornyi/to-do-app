@@ -66,7 +66,11 @@ class TodoPage extends Page {
         await editInput.waitForDisplayed();
 
         // Clear and set new value
-        await editInput.setValue(newText);
+        await editInput.click();
+        await browser.keys(['Control', 'a']);
+        await browser.keys('Backspace');
+        await editInput.addValue(newText);
+
         // Press Enter to save
         await browser.keys('Enter');
     }

@@ -26,13 +26,13 @@ describe('SimplyDone Todo App', () => {
         await expect(todoSpan).toHaveElementClass('line-through');
     });
 
-    // it('should edit a todo item via double click', async () => {
-    //     await TodoPage.addTodo('Fix bug');
+    it('should edit a todo item via double click', async () => {
+        await TodoPage.addTodo('Fix bug');
 
-    //     await TodoPage.editTodo(0, 'Fix critical bug');
+        await TodoPage.editTodo(0, 'Fix critical bug');
 
-    //     await expect(TodoPage.listItems[0]).toHaveText(expect.stringContaining('Fix critical bug'));
-    // });
+        await expect(TodoPage.listItems[0]).toHaveText(expect.stringContaining('Fix critical bug'));
+    });
 
     it('should delete a todo item', async () => {
         await TodoPage.addTodo('Task to delete');
