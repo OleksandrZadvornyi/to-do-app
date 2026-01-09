@@ -1,7 +1,7 @@
 {
   "name": "simply-done",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.5.1",
   "type": "module",
   "description": "A simple and efficient to-do list application built with React and TypeScript",
   "scripts": {

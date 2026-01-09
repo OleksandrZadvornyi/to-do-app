@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/OleksandrZadvornyi/to-do-app/compare/v0.5.0...v0.5.1) (2026-01-09)
+
+
+### Bug Fixes
+
+* improve todo edit functionality ([5a4aca0](https://github.com/OleksandrZadvornyi/to-do-app/commit/5a4aca08ec16f591ca6604214072d343e2d4921b))
+
 # [0.5.0](https://github.com/OleksandrZadvornyi/to-do-app/compare/v0.4.1...v0.5.0) (2026-01-07)
 
 
