@@ -11,7 +11,8 @@
       "@wdio/mocha-framework"
     ],
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true
   },
   "include": ["../wdio.conf.ts", "./**/*.ts"]
 }
